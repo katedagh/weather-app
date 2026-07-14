@@ -6,6 +6,12 @@ body {
     font-family: "Mulish", sans-serif;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .search-form {
     display: flex;
     flex-direction: column;
@@ -33,4 +39,22 @@ input {
 
 .btn:hover {
     background-color: #003d5f;
+}
+
+.btn:active {
+    transform: translate(1px, 1px);
+}
+
+#weather {
+    min-width: 600px; 
+    max-width: 800px;
+    background-color: #003e5f13;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #003d5f;
+    border-radius: 5px;
 }
