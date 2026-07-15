@@ -3,8 +3,6 @@ import { renderData } from "./card.js";
 
 const searchForm = document.querySelector("#city-search")
 
-const weatherPage = document.querySelector("#weather")
-
 searchForm.addEventListener("submit", async event => {
     event.preventDefault()
 
@@ -18,4 +16,7 @@ searchForm.addEventListener("submit", async event => {
     const weather = await getWeather(coordinates.latitude, coordinates.longitude)
 
     renderData(weather, city)
+
 })
+
+

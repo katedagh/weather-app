@@ -38,6 +38,27 @@ export function renderData(weather, city) {
     <p>${weather.wind} m/s</p>`
     card.appendChild(wind)
 
+    const heading = document.createElement("h3")
+    heading.textContent = "Hourly forecast"
+    card.appendChild(heading)
+    const hourlyWeather = document.createElement("div")
+    hourlyWeather.classList.add("hourly-container")
+    card.appendChild(hourlyWeather)
+    console.log(weather.hourly)
+    weather.hourly.forEach(hour => {
+       const hourlyText = document.createElement("p")
+        hourlyText.textContent = `${hour.time} ${hour.temperature}°C`
+        hourlyWeather.appendChild(hourlyText)
+    });
+
+
+
+
+
+
+
+
+
     const sunTime = document.createElement("div")
     sunTime.classList.add("container-small")
     sunTime.innerHTML = `
@@ -57,6 +78,6 @@ export function renderData(weather, city) {
     </svg>
     </div>`
     card.appendChild(sunTime)
- 
+
     weatherPage.appendChild(card)
 }

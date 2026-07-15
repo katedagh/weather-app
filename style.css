@@ -80,9 +80,20 @@ input {
     margin-top: 0;
 }
 
+.hourly-container {
+    display: flex;
+    gap: 20px;
+    max-width: 500px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    background-color: #adcfde;
+
+}
+
 h3 {
     font-size: 1.2rem;
     margin: 0;
+    margin-bottom: 5px;
 }
 
 .container-small{
@@ -91,6 +102,7 @@ h3 {
     justify-content:center;
     align-items: center;
     gap: 40px;
+    margin-bottom: 20px;
 }
 
 .suntime-box{
