@@ -1,4 +1,4 @@
-async function getCoordinates(city) {
+export async function getCoordinates(city) {
    const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`)
 
    const data = await response.json()
@@ -9,7 +9,7 @@ async function getCoordinates(city) {
    return {latitude, longitude}
 }
 
-async function getWeather(latitude, longitude) {
+export async function getWeather(latitude, longitude) {
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,rain,uv_index,wind_speed_10m&current=temperature_2m,rain,wind_speed_10m,apparent_temperature,weather_code,showers,is_day&timezone=auto`)
 
     const data = await response.json()

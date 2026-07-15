@@ -63,6 +63,7 @@ input {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .text-bold {
@@ -72,6 +73,7 @@ input {
 
 h3 {
     font-size: 1.2rem;
+    margin: 0;
 }
 
 .suntime{
@@ -83,6 +85,11 @@ h3 {
 
 .suntime-box{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
+}
+
+.suntime-text {
+    font-size: 1.3rem;
+    margin-block: 5px;
 }

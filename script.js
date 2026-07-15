@@ -1,3 +1,6 @@
+import { getCoordinates, getWeather } from "./api.js";
+import { renderData } from "./card.js";
+
 const searchForm = document.querySelector("#city-search")
 
 const weatherPage = document.querySelector("#weather")
