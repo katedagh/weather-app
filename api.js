@@ -13,12 +13,12 @@ export async function getWeather(latitude, longitude) {
     const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min&hourly=temperature_2m,rain,uv_index,wind_speed_10m&current=temperature_2m,rain,wind_speed_10m,apparent_temperature,weather_code,showers,is_day&timezone=auto`)
 
     const data = await response.json()
-     console.log(data.current.time)
+     console.log(data.current.weather_code)
 
 
     const currentHour = data.current.time.slice(0, 13)
 
-const startIndex = data.hourly.time.findIndex(time =>
+    const startIndex = data.hourly.time.findIndex(time =>
     time.startsWith(currentHour)
 )
 
@@ -30,7 +30,6 @@ const startIndex = data.hourly.time.findIndex(time =>
          rain: data.hourly.rain[i]
        })
     }
-    console.log(hourly)
 
 
     return {
@@ -39,6 +38,7 @@ const startIndex = data.hourly.time.findIndex(time =>
         sunrise: data.daily.sunrise[0].split("T")[1],
         sunset: data.daily.sunset[0].split("T")[1],
         rain: data.current.rain,
+        isDay: data.current.is_day,
         weatherCode: data.current.weather_code,
         wind: data.current.wind_speed_10m,
         hourly: hourly

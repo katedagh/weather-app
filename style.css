@@ -86,8 +86,9 @@ input {
     max-width: 500px;
     overflow-x: auto;
     scrollbar-width: none;
-    background-color: #adcfde;
-
+    background-color: #ffffff46;
+    border-radius: 5px;
+    padding-inline: 20px;
 }
 
 h3 {
@@ -114,4 +115,25 @@ h3 {
 .suntime-text {
     font-size: 1.3rem;
     margin-block: 5px;
+}
+
+
+.weather.clear {
+    background: linear-gradient(#8ac6e2, #76c9ed);
+}
+.weather.cloudy {
+    background: linear-gradient(#5db1d4, #deecf3);
+}
+.weather.overcast {
+    background: linear-gradient(#7c8d91, #deecf3);
+}
+.weather.rain {
+    background: linear-gradient(#626a6d, #afc4c6);
+}
+.weather.night {
+    background: linear-gradient(#0a2d39, #010f2e);
+}
+#weather.card-night {
+    background-color: #ffffff0d;
+    color: #fff;
 }
