@@ -1,4 +1,4 @@
-import { weatherInfo, getWeatherInfo } from "./icons.js";
+import { weatherInfo, getWeatherInfo } from "./weather-info.js";
 
 const weatherPage = document.querySelector("#weather")
 const page = document.querySelector("body")
@@ -8,7 +8,7 @@ export function renderData(weather, city) {
 
     const info = weatherInfo[weather.weatherCode]
     console.log(info.background)
-    page.className = `weather ${info.background}`
+    page.className = `weather ${info.background}` 
     if (!weather.isDay) {
     page.classList.add("night")
     weatherPage.classList.add("card-night")
@@ -68,6 +68,38 @@ export function renderData(weather, city) {
         hourlyText.textContent = `${hour.time} ${hour.temperature}°C`
         hourlyWeather.appendChild(hourlyText)
     });
+
+
+    const dailyWeather = document.createElement("div")
+    dailyWeather.classList.add("daily-container")
+    card.appendChild(dailyWeather)
+    
+    weather.daily.forEach(day => {
+        const line = document.createElement("div")
+        line.classList.add("line")
+        
+        const lineDay = document.createElement("p")
+        lineDay.textContent = `Den: ${day.time}`
+        line.appendChild(lineDay)
+
+         const lineTempMax = document.createElement("p")
+          lineTempMax.textContent = `↑ ${day.temperatureMax} °C`
+          line.appendChild(lineTempMax)
+
+          const lineTempMin = document.createElement("p")
+           lineTempMin.textContent = `↓ ${day.temperatureMin} °C`
+           line.appendChild(lineTempMin)
+
+           const lineWeatherCode = document.createElement("div")
+            const iconSm = getWeatherInfo(day.weatherCode, 235)
+            lineWeatherCode.innerHTML = `${iconSm}`
+            line.appendChild(lineWeatherCode)
+
+            console.log("Ikonka")
+            console.log(day.weatherCode)
+            dailyWeather.appendChild(line)
+    })
+    console.log(weather.daily)
 
 
 
