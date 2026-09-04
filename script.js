@@ -17,6 +17,8 @@ searchForm.addEventListener("submit", async event => {
 
     renderData(weather, city)
 
+    document.querySelector("#search-form").classList.add("hidden")
+
 })
 
 

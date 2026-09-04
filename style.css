@@ -1,8 +1,21 @@
+:root {
+    --sky-blue: #87CEEB;
+    --light-blue: #cde9f6;
+    --btn-light:  #086ba1;
+    --btn-dark:  #003d5f;
+    --dark-gray: #626a6d;
+    --gray: #a8acae;
+    --blue-gray: #a5bcc2;
+    --transparent: ;
+
+}
+
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #8ac6e2;
+    background-color: var(--sky-blue);
     font-family: "Mulish", sans-serif;
 }
 
@@ -22,6 +35,22 @@ body {
     font-size: 1.5rem;
 }
 
+.hidden {
+    display: none;
+}
+.search-button {
+    background-color: var(--btn-light);
+    border-radius: 5px;
+    color: #fff;
+    padding: 2px;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.search-button:hover {
+    background-color: var(--btn-dark);
+}
+
 input {
     font-size: 1.3rem;
     border-radius: 5px;
@@ -33,12 +62,12 @@ input {
 }
 
 .btn {
-    background-color: #086ba1;
+    background-color: var(--btn-light);
     color: #fff;
 }
 
 .btn:hover {
-    background-color: #003d5f;
+    background-color: var(--btn-dark);
 }
 
 .btn:active {
@@ -49,7 +78,6 @@ input {
     min-width: 600px; 
     max-width: 800px;
     background-color: #003e5f13;
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -119,16 +147,16 @@ h3 {
 
 
 .weather.clear {
-    background: linear-gradient(#8ac6e2, #76c9ed);
+    background: linear-gradient(var(--sky-blue), var(--light-blue));
 }
 .weather.cloudy {
-    background: linear-gradient(#5db1d4, #deecf3);
+    background: linear-gradient(var(--blue-gray), var(--sky-blue));
 }
 .weather.overcast {
-    background: linear-gradient(#7c8d91, #deecf3);
+    background: linear-gradient(var(--gray), var(--blue-gray));
 }
 .weather.rain {
-    background: linear-gradient(#626a6d, #afc4c6);
+    background: linear-gradient(var(--dark-gray), var(--blue-gray));
 }
 .weather.night {
     background: linear-gradient(#0a2d39, #010f2e);

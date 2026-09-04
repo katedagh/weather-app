@@ -19,6 +19,15 @@ export function renderData(weather, city) {
 
     const card = document.createElement("div")
     card.classList.add("card")
+
+    const searchButton = document.createElement("a")
+    searchButton.textContent = "search"
+    searchButton.classList.add("search-button")
+    card.appendChild(searchButton)
+
+    searchButton.addEventListener("click", () => {
+        document.querySelector("#search-form").classList.toggle("hidden")
+    })
    
     const cityName = document.createElement("h2")
     cityName.textContent = city.charAt(0).toUpperCase() + city.slice(1)
