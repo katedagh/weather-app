@@ -129,7 +129,7 @@ export function renderData(weather, city) {
            line.appendChild(lineTempMin)
 
            const lineWeatherCode = document.createElement("div")
-            const iconSm = getWeatherInfo(day.weatherCode, 235)
+            const iconSm = getWeatherInfo(day.weatherCode, 1)
             lineWeatherCode.innerHTML = `${iconSm}`
              const svg = lineWeatherCode.querySelector("svg")
         svg.style.width = "30px"
