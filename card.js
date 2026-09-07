@@ -77,13 +77,19 @@ export function renderData(weather, city) {
     const hourlyWeather = document.createElement("div")
     hourlyWeather.classList.add("hourly-container")
     card.appendChild(hourlyWeather)
-
+    console.log(weather.hourly)
  
     weather.hourly.forEach(hour => {
-       const hourlyText = document.createElement("p")
+        const iconHourly = getWeatherInfo(hour.weatherCode, hour.isDay)
+       const hourlyText = document.createElement("div")
        hourlyText.classList.add("hourly-text")
-        hourlyText.textContent = `${hour.time} ${hour.temperature}°C`
+        hourlyText.innerHTML = `${hour.time} ${iconHourly}  ${hour.temperature}°C`
+    
+       const svg = hourlyText.querySelector("svg")
+        svg.style.width = "30px"
+        svg.style.height = "30px"
         hourlyWeather.appendChild(hourlyText)
+    
     });
 
     //daily weather
@@ -98,9 +104,20 @@ export function renderData(weather, city) {
     weather.daily.forEach(day => {
         const line = document.createElement("div")
         line.classList.add("line")
-        
+
+        const weekDays = {
+            0: "Sun",
+            1: "Mon",
+            2: "Tue",
+            3: "Wed",
+            4: "Thu",
+            5: "Fri", 
+            6: "Sat" 
+        }
+        const dayName = weekDays[new Date(day.time).getDay()];
+
         const lineDay = document.createElement("p")
-        lineDay.textContent = `Den: ${day.time}`
+        lineDay.textContent = `${dayName}`
         line.appendChild(lineDay)
 
          const lineTempMax = document.createElement("p")
@@ -114,6 +131,9 @@ export function renderData(weather, city) {
            const lineWeatherCode = document.createElement("div")
             const iconSm = getWeatherInfo(day.weatherCode, 235)
             lineWeatherCode.innerHTML = `${iconSm}`
+             const svg = lineWeatherCode.querySelector("svg")
+        svg.style.width = "30px"
+        svg.style.height = "30px"
             line.appendChild(lineWeatherCode)
 
             dailyWeather.appendChild(line)

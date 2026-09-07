@@ -20,5 +20,3 @@ searchForm.addEventListener("submit", async event => {
     document.querySelector("#search-form").classList.add("hidden")
 
 })
-
-

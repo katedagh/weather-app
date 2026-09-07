@@ -10,7 +10,7 @@ export async function getCoordinates(city) {
 }
 
 export async function getWeather(latitude, longitude) {
-    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min,weather_code,rain_sum&hourly=temperature_2m,rain,uv_index,wind_speed_10m,weather_code&current=temperature_2m,rain,wind_speed_10m,apparent_temperature,weather_code,showers,is_day&timezone=auto`)
+    const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&daily=sunrise,sunset,temperature_2m_max,temperature_2m_min,weather_code,rain_sum&hourly=temperature_2m,rain,uv_index,wind_speed_10m,weather_code,is_day&current=temperature_2m,rain,wind_speed_10m,apparent_temperature,weather_code,showers,is_day&timezone=auto`)
 
     const data = await response.json()
      
@@ -21,11 +21,12 @@ export async function getWeather(latitude, longitude) {
     const startIndex = data.hourly.time.findIndex(time =>
     time.startsWith(currentHour)
 )
-
+  console.log(data.hourly)
     const hourly = []
     for (let i = startIndex; i < startIndex + 24; i++) {
        hourly.push({
          time: data.hourly.time[i].split("T")[1],
+         isDay: data.hourly.is_day[i],
          temperature: data.hourly.temperature_2m[i],
          weatherCode: data.hourly.weather_code[i],
          rain: data.hourly.rain[i]

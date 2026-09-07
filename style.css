@@ -88,7 +88,7 @@ input {
     align-items: center;
     font-weight: 600;
     font-size: 1.1rem;
-    color: var(--text-blue);
+    color: var(--dark-blue);
     border-radius: 5px;
 }
 
@@ -133,6 +133,7 @@ h2 {
 
 .hourly-container {
     display: flex;
+    align-items: center;
     gap: 20px;
     min-width: 390px;
     max-width: 600px;
@@ -140,7 +141,7 @@ h2 {
     scrollbar-width: none;
     background-color: var(--transparent-light);
     border-radius: 5px;
-    padding-inline: 20px;
+    padding: 10px 20px;
     margin-inline: 10px;
 }
 
@@ -202,7 +203,7 @@ h3 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
     font-size: 16px;
     font-weight: 600px;
     border-bottom:1px solid var(--dark-blue);
