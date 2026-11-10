@@ -80,7 +80,8 @@ input {
 
 /*     weather card      */
 #weather {
-    min-width: 400px; 
+    width: 100%;
+    min-width: 0px; 
     max-width: 800px;
     background-color: var(--transparent-dark);
     display: flex;
@@ -135,14 +136,15 @@ h2 {
     display: flex;
     align-items: center;
     gap: 20px;
-    min-width: 390px;
+    width: 100%;
     max-width: 600px;
+    min-width: 0;
     overflow-x: auto;
     scrollbar-width: none;
     background-color: var(--transparent-light);
     border-radius: 5px;
     padding: 10px 20px;
-    margin-inline: 10px;
+  
 }
 
 

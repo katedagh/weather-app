@@ -12,6 +12,13 @@ searchForm.addEventListener("submit", async event => {
     event.target.elements.city.value = ""
    
     const coordinates = await getCoordinates(city)
+
+    console.log(coordinates)
+
+   if (coordinates === 0) {
+    alert("Please enter a valid city")
+    return
+    }
   
     const weather = await getWeather(coordinates.latitude, coordinates.longitude)
 

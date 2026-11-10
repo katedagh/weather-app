@@ -2,6 +2,10 @@ export async function getCoordinates(city) {
    const response = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=10&language=en&format=json`)
 
    const data = await response.json()
+
+    if (!data.results) {
+      return 0
+   }
  
    const latitude = data.results[0].latitude
    const longitude = data.results[0].longitude
